@@ -1,0 +1,28 @@
+spring:
+  profiles.active: default
+---
+
+spring:
+    profiles: default
+---
+
+spring:
+    profiles: preprod
+
+    cassandra:
+        ips: "192.168.120.24"
+        port: 9160
+        keyspace: "metrics"
+        defaultTTL: 15000000
+
+---
+spring:
+    profiles: prod
+
+    cassandra:
+        ips: "192.168.120.59,192.168.120.58,192.168.120.57"
+        port: 9160
+        keyspace: "metrics"
+        defaultTTL: 15000000
+
+#NOTA: los cassandra.ip se pasan como 1 string entero y despues en el @Value se esplitean y se convierten en una List<String>

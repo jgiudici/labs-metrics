@@ -1,0 +1,92 @@
+group 'com.navent'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+apply plugin: "jacoco"
+apply plugin: 'maven'
+apply plugin: "jetty"
+apply plugin: 'pmd'
+
+sourceCompatibility = 1.8
+
+ext['springVersion'] = '4.1.6.RELEASE'
+ext['jerseyVersion'] = '2.20'
+ext['servletVersion'] = '2.5'
+ext['hibernateVersion'] = '4.3.6.Final'
+ext['mysqlVersion'] = '5.1.6'
+ext['commonsioVersion'] = '2.4'
+ext['commonscsvVersion'] = '1.1'
+ext['commonslangVersion'] = '3.4'
+ext['mockitoVersion'] = '1.10.19'
+ext['mockitoPowermockVersion'] = '1.6.2'
+ext['log4jVersion'] = '1.2.17'
+ext['jodatimeVersion'] = '2.8.1'
+ext['commonsBeanutilsVersion'] = '1.9.2'
+ext['commonsDigesterVersion'] = '2.1'
+ext['guavaVersion'] = '18.0'
+ext['jacksonVersion'] = '2.6.1'
+ext['aspectjVersion'] = '1.8.6'
+ext['swaggerVersion'] = '2.0.1'
+ext['quartzVersion'] = '2.2.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+
+dependencies {
+    compile "org.glassfish.jersey.core:jersey-server:$jerseyVersion"
+    compile "javax.servlet:javax.servlet-api:3.0.1"
+
+    compile "org.springframework:spring-webmvc:$springVersion"
+    compile "org.springframework:spring-aop:$springVersion"
+    compile "org.springframework:spring-context:$springVersion"
+    compile "org.springframework:spring-core:$springVersion"
+    compile "org.springframework:spring-beans:$springVersion"
+    compile "org.springframework:spring-tx:$springVersion"
+    compile "org.springframework:spring-orm:$springVersion"
+    compile "org.springframework:spring-context-support:$springVersion"
+
+    compile "org.hibernate:hibernate-core:$hibernateVersion"
+    compile 'org.apache.commons:commons-dbcp2:2.1.1'
+    compile "mysql:mysql-connector-java:$mysqlVersion"
+
+    compile "commons-io:commons-io:$commonsioVersion"
+    compile "org.apache.commons:commons-csv:$commonscsvVersion"
+    compile "org.apache.commons:commons-lang3:$commonslangVersion"
+
+    testCompile "org.mockito:mockito-all:$mockitoVersion"
+    testCompile 'org.testng:testng:6.9.6'
+    testCompile "org.springframework:spring-test:$springVersion"
+    testCompile "com.google.inject:guice:4.0:no_aop@jar"
+
+    compile 'log4j:log4j:1.2.17'
+
+
+    compile('com.datastax.cassandra:cassandra-driver-core:3.0.0')
+
+    compile "commons-beanutils:commons-beanutils:$commonsBeanutilsVersion"
+    compile "commons-digester:commons-digester:$commonsDigesterVersion"
+    compile "com.google.guava:guava:$guavaVersion"
+    compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+
+    compile "org.aspectj:aspectjrt:$aspectjVersion"
+    compile "org.aspectj:aspectjweaver:$aspectjVersion"
+
+    compile "io.springfox:springfox-swagger2:$swaggerVersion"
+    compile "io.springfox:springfox-swagger-ui:$swaggerVersion"
+
+    compile "org.quartz-scheduler:quartz:$quartzVersion"
+    compile 'com.google.code.gson:gson:2.3.1'
+
+    compile 'com.google.code.simple-spring-memcached:spring-cache:3.6.0'
+    compile 'net.sf.ehcache:ehcache-core:2.6.10'
+
+}
